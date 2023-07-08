@@ -1,0 +1,57 @@
+name: meta_booking
+description: Flutter Project by ITCoderz. Flutter SDK Version for the App is 3.10.5 .
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.5
+  get: ^4.6.5
+  flutter_launcher_icons: ^0.13.1
+  flutter_svg: ^2.0.7
+  font_awesome_flutter: ^10.5.0
+  syncfusion_flutter_calendar: ^22.1.37
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.2
+
+flutter_icons:
+  image_path: "assets/images/app_logo/meta_booking_app_logo.png"
+  android: true
+  ios: true
+  remove_alpha_ios: true
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/images/
+    - assets/fonts/montserrat/
+    - assets/images/app_logo/
+    - assets/fonts/roboto/
+
+
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/roboto/Roboto-Bold.ttf
+        - asset: assets/fonts/roboto/Roboto-Medium.ttf
+        - asset: assets/fonts/roboto/Roboto-Regular.ttf
+        - asset: assets/fonts/roboto/Roboto-Light.ttf
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/montserrat/Montserrat-Bold.ttf
+        - asset: assets/fonts/montserrat/Montserrat-Light.ttf
+        - asset: assets/fonts/montserrat/Montserrat-Medium.ttf
+        - asset: assets/fonts/montserrat/Montserrat-Regular.ttf
+
