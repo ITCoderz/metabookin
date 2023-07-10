@@ -39,6 +39,10 @@ flutter:
     - assets/fonts/montserrat/
     - assets/images/app_logo/
     - assets/fonts/roboto/
+    - assets/images/notifications/
+    - assets/images/icons/
+    - assets/images/app/
+    - assets/images/bottom_nav_bar/
 
 
   fonts:

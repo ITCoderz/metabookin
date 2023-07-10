@@ -7,13 +7,19 @@ class CustomElevatedButton extends StatelessWidget {
   final Function()? onPressedFunction;
   final String buttonText;
   final double height, width;
+  final bool isDark, isLight, isBlue, isRed, isBorderStadium;
 
   const CustomElevatedButton({
     super.key,
     required this.onPressedFunction,
     required this.buttonText,
     required this.width,
-    this.height = 55,
+    this.height = 50,
+    this.isDark = false,
+    this.isLight = false,
+    this.isBlue = false,
+    this.isRed = false,
+    this.isBorderStadium = false,
   });
 
   @override
@@ -25,13 +31,29 @@ class CustomElevatedButton extends StatelessWidget {
           width,
           height,
         ),
-        backgroundColor: CColors.primaryButtonColor,
-        shape: const StadiumBorder(),
+        backgroundColor: isDark
+            ? CColors.darkBackground
+            : isLight
+                ? CColors.greyColor
+                : isBlue
+                    ? CColors.blueAccent
+                    : CColors.redAccentColor,
+        shape: isBorderStadium
+            ? const StadiumBorder()
+            : RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  10,
+                ),
+              ),
       ),
       child: FittedBox(
         child: Text(
           buttonText,
-          style: CustomTextStyles.mWhite516,
+          style: isLight
+              ? CustomTextStyles.rDarkTwo514
+              : isBorderStadium
+                  ? CustomTextStyles.mWhite408
+                  : CustomTextStyles.rWhite614,
         ),
       ),
     );

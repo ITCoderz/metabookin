@@ -1,115 +1,130 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:meta_booking/utils/gaps/gaps.dart';
+import 'package:meta_booking/utils/text_styles/text_styles.dart';
+import '../../generated/assets.dart';
 import '../../utils/colors/app_colors.dart';
-import '../../utils/text_styles/text_styles.dart';
 
-class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final bool needBackButton, needActions, needTitle, needDeleteAction;
-  final String titleText;
-  final Function()? deleteFunction;
+class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final bool isDark, centerTitle, needNotificationAction;
 
-  const CustomAppBar({
-    Key? key,
-    this.needBackButton = true,
-    this.needActions = false,
-    this.needTitle = false,
-    this.needDeleteAction = false,
-    this.titleText = "",
-    this.deleteFunction,
-  }) : super(key: key);
+  const PrimaryAppBar({
+    super.key,
+    this.isDark = true,
+    this.centerTitle = true,
+    this.needNotificationAction = false,
+  });
 
   @override
-  Size get preferredSize => const Size.fromHeight(60);
+  Size get preferredSize => const Size.fromHeight(
+        60,
+      );
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor:
+          isDark ? CColors.darkBackground : CColors.scaffoldBackground,
+      elevation: 0,
+      forceMaterialTransparency: false,
+      automaticallyImplyLeading: false,
+      centerTitle: centerTitle,
+      title: Image.asset(
+        isDark ? Assets.appLightAppIcon : Assets.appDarkAppIcon,
+        height: 30,
+        width: 132,
+      ),
+      actions: needNotificationAction
+          ? [
+              IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset(
+                    Assets.iconsNotificationBell,
+                    height: 24,
+                  )),
+              15.pw,
+            ]
+          : null,
+    );
+  }
+}
+
+class SecondaryAppBar extends StatelessWidget implements PreferredSizeWidget {
+  final bool needAction;
+  final String titleString;
+
+  const SecondaryAppBar({
+    super.key,
+    this.needAction = false,
+    required this.titleString,
+  });
+
+  @override
+  Size get preferredSize => const Size.fromHeight(
+        60,
+      );
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: CColors.scaffoldBackground,
       elevation: 0,
-      forceMaterialTransparency: true,
+      forceMaterialTransparency: false,
       automaticallyImplyLeading: false,
       centerTitle: true,
-      leading: needBackButton
-          ? Row(
-              children: [
-                20.pw,
-                Expanded(
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(
-                          10,
-                        ),
-                      ),
-                      padding: EdgeInsets.zero,
-                      alignment: Alignment.center,
-                      backgroundColor: CColors.primaryButtonColor,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_back_ios_new_rounded,
-                      color: CColors.whiteColor,
-                      size: 20,
-                    ),
+      leading: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          20.pw,
+          Expanded(
+            child: InkWell(
+              borderRadius: BorderRadius.circular(
+                10,
+              ),
+              onTap: () {
+                Get.back();
+              },
+              child: Container(
+                height: 28,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(
+                    22,
+                  ),
+                  color: CColors.greyAccentColor,
+                ),
+                child: const Icon(
+                  Icons.arrow_back_rounded,
+                  color: CColors.blackColor,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      leadingWidth: 60,
+      title: Text(
+        titleString,
+        style: CustomTextStyles.mBlack716,
+      ),
+      actions: needAction
+          ? [
+              Container(
+                height: 30,
+                decoration: const BoxDecoration(
+                  color: CColors.greyAccentColor,
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: SvgPicture.asset(
+                    Assets.iconsFilterList,
+                    height: 12,
                   ),
                 ),
-              ],
-            )
-          : const SizedBox.shrink(),
-      leadingWidth: 60,
-      title: needTitle
-          ? Text(
-              titleText,
-              style: CustomTextStyles.gWhite724,
-            )
-          : const SizedBox.shrink(),
-      actions: needActions
-          ? [
-              needDeleteAction
-                  ? Container(
-                      height: 40,
-                      width: 40,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                        color: CColors.orangeAccent,
-                        borderRadius: BorderRadius.circular(
-                          10,
-                        ),
-                      ),
-                      child: IconButton(
-                          onPressed: deleteFunction,
-                          icon: const FaIcon(
-                            FontAwesomeIcons.trashCan,
-                            color: CColors.whiteColor,
-                            size: 20,
-                          )),
-                    )
-                  : Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: const FaIcon(
-                            FontAwesomeIcons.gear,
-                            color: CColors.whiteColor,
-                            size: 25,
-                          ),
-                        ),
-                        IconButton(
-                          onPressed: () {},
-                          icon: const FaIcon(
-                            FontAwesomeIcons.bell,
-                            color: CColors.whiteColor,
-                            size: 25,
-                          ),
-                        ),
-                      ],
-                    ),
-              20.pw,
+              ),
+              15.pw,
             ]
           : null,
     );

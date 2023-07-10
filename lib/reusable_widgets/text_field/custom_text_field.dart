@@ -1,20 +1,21 @@
-import 'package:meta_booking/utils/gaps/gaps.dart';
 import 'package:flutter/material.dart';
 
 import '../../utils/colors/app_colors.dart';
 import '../../utils/text_styles/text_styles.dart';
 
-class CustomRequestTextField extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final String? Function(String?)? validatorFunction;
   final TextEditingController textEditingController;
   final String hintText;
   final double width, height;
+  final Color fillColor;
 
-  const CustomRequestTextField({
+  const CustomTextField({
     Key? key,
     this.width = 250,
     this.height = 50,
     this.hintText = "",
+    this.fillColor = CColors.scaffoldBackground,
     required this.validatorFunction,
     required this.textEditingController,
   }) : super(key: key);
@@ -27,66 +28,66 @@ class CustomRequestTextField extends StatelessWidget {
       child: TextFormField(
         controller: textEditingController,
         textAlignVertical: TextAlignVertical.center,
-        style: CustomTextStyles.mWhite520,
-        keyboardType: TextInputType.text,
+        style: CustomTextStyles.mBlack512,
+        keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
-          prefixIcon: Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              2.pw,
-              Container(
-                height: 48,
-                width: 6,
-                decoration: BoxDecoration(
-                  color: CColors.primaryColor,
-                  borderRadius: BorderRadius.circular(100),
-                ),
-              ),
-              2.pw,
-            ],
-          ),
-          prefixIconConstraints: const BoxConstraints(
-            maxWidth: 20,
-            minWidth: 20,
-            maxHeight: 48,
-            minHeight: 48,
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 5,
+            horizontal: 15,
           ),
           hintText: hintText,
-          hintStyle: CustomTextStyles.mWhite520,
+          hintStyle: CustomTextStyles.mBlack512,
           enabled: true,
           filled: true,
-          fillColor: CColors.primaryButtonColor,
-          enabledBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none,
+          errorStyle: CustomTextStyles.mError512,
+          fillColor: fillColor,
+          border: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: CColors.blackColor,
+            ),
             borderRadius: BorderRadius.all(
               Radius.circular(
-                12,
+                10,
+              ),
+            ),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: CColors.blackColor,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                10,
               ),
             ),
           ),
           errorBorder: const OutlineInputBorder(
             borderSide: BorderSide(
-              color: CColors.primaryAccentColor,
+              color: CColors.redAccentColor,
             ),
             borderRadius: BorderRadius.all(
               Radius.circular(
-                16,
+                10,
+              ),
+            ),
+          ),
+          focusedErrorBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: CColors.redAccentColor,
+            ),
+            borderRadius: BorderRadius.all(
+              Radius.circular(
+                10,
               ),
             ),
           ),
           focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide.none,
-            borderRadius: BorderRadius.all(
-              Radius.circular(
-                16,
-              ),
+            borderSide: BorderSide(
+              color: CColors.blackColor,
             ),
-          ),
-          border: const OutlineInputBorder(
-            borderSide: BorderSide.none,
             borderRadius: BorderRadius.all(
               Radius.circular(
-                16,
+                10,
               ),
             ),
           ),

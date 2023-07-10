@@ -2,11 +2,25 @@
 class Assets {
   Assets._();
 
+  static const String appDarkAppIcon = 'assets/images/app/dark_app_icon.png';
+  static const String appLightAppIcon = 'assets/images/app/light_app_icon.png';
   static const String appLogoMetaBookingAppLogo = 'assets/images/app_logo/meta_booking_app_logo.png';
+  static const String bottomNavBarCalender = 'assets/images/bottom_nav_bar/calender.svg';
+  static const String bottomNavBarProfile = 'assets/images/bottom_nav_bar/profile.svg';
+  static const String bottomNavBarServices = 'assets/images/bottom_nav_bar/services.svg';
+  static const String bottomNavBarToday = 'assets/images/bottom_nav_bar/today.svg';
+  static const String iconsAdd = 'assets/images/icons/add.svg';
+  static const String iconsFilterList = 'assets/images/icons/filter_list.svg';
+  static const String iconsHomeIcon = 'assets/images/icons/home_icon.svg';
+  static const String iconsLocationNearMe = 'assets/images/icons/location_near_me.svg';
+  static const String iconsNotificationBell = 'assets/images/icons/notification_bell.svg';
+  static const String iconsPhone = 'assets/images/icons/phone.svg';
+  static const String iconsServiceFilter = 'assets/images/icons/service_filter.svg';
   static const String montserratMontserratBold = 'assets/fonts/montserrat/Montserrat-Bold.ttf';
   static const String montserratMontserratLight = 'assets/fonts/montserrat/Montserrat-Light.ttf';
   static const String montserratMontserratMedium = 'assets/fonts/montserrat/Montserrat-Medium.ttf';
   static const String montserratMontserratRegular = 'assets/fonts/montserrat/Montserrat-Regular.ttf';
+  static const String notificationsNoNotificationsYetImage = 'assets/images/notifications/no_notifications_yet_image.svg';
   static const String robotoRobotoBold = 'assets/fonts/roboto/Roboto-Bold.ttf';
   static const String robotoRobotoLight = 'assets/fonts/roboto/Roboto-Light.ttf';
   static const String robotoRobotoMedium = 'assets/fonts/roboto/Roboto-Medium.ttf';
