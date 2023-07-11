@@ -12,10 +12,14 @@ class CColors {
   static const Color descriptionColor = Color(0xFF7C889E);
   static const Color greyColor = Color(0xFFD9D9D9);
   static const Color greyAccentColor = Color(0xFFE8E8E8);
+  static const Color greyAccentTwoColor = Color(0xFFD5D5D5);
+  static const Color chipBorderColor = Color(0xFFCCCCCC);
+  static const Color containerBackgroundColor = Color(0xFFF1F1F1);
 
   static const Color blueAccent = Color(0xFF39BCEA);
   static const Color blueAccentTwo = Color(0xFF2888D5);
   static const Color blueAccentThree = Color(0xFF1FA8D8);
+  static const Color blueAccentFour = Color(0xFF2D96DB);
   static List<Color> homepageMakeFriendsGradient = [
     const Color(0xFF3AD1EE).withOpacity(1),
     const Color(0xFF2B90D8).withOpacity(1),

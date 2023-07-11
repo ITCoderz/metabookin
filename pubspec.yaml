@@ -43,6 +43,7 @@ flutter:
     - assets/images/icons/
     - assets/images/app/
     - assets/images/bottom_nav_bar/
+    - assets/images/welcome_screen_image/
 
 
   fonts:

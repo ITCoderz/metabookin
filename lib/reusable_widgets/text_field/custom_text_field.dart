@@ -9,12 +9,16 @@ class CustomTextField extends StatelessWidget {
   final String hintText;
   final double width, height;
   final Color fillColor;
+  final bool isPassword, isPhone, isEmail;
 
   const CustomTextField({
     Key? key,
     this.width = 250,
     this.height = 50,
     this.hintText = "",
+    this.isEmail = true,
+    this.isPassword = false,
+    this.isPhone = false,
     this.fillColor = CColors.scaffoldBackground,
     required this.validatorFunction,
     required this.textEditingController,
@@ -29,7 +33,12 @@ class CustomTextField extends StatelessWidget {
         controller: textEditingController,
         textAlignVertical: TextAlignVertical.center,
         style: CustomTextStyles.mBlack512,
-        keyboardType: TextInputType.emailAddress,
+        keyboardType: isEmail
+            ? TextInputType.emailAddress
+            : isPhone
+                ? TextInputType.phone
+                : TextInputType.text,
+        obscureText: isPassword,
         decoration: InputDecoration(
           contentPadding: const EdgeInsets.symmetric(
             vertical: 5,

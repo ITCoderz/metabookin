@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:meta_booking/utils/gaps/gaps.dart';
 import 'package:meta_booking/utils/text_styles/text_styles.dart';
 import '../../generated/assets.dart';
+import '../../screens/home/notifications_screen/view/notifications_screen.dart';
 import '../../utils/colors/app_colors.dart';
 
 class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -38,7 +39,12 @@ class PrimaryAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: needNotificationAction
           ? [
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(
+                      () => const NotificationsScreen(),
+                      transition: Transition.fadeIn,
+                    );
+                  },
                   icon: SvgPicture.asset(
                     Assets.iconsNotificationBell,
                     height: 24,
@@ -70,7 +76,7 @@ class SecondaryAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: CColors.scaffoldBackground,
       elevation: 0,
-      forceMaterialTransparency: false,
+      forceMaterialTransparency: true,
       automaticallyImplyLeading: false,
       centerTitle: true,
       leading: Row(

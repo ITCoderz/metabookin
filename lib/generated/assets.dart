@@ -20,10 +20,12 @@ class Assets {
   static const String montserratMontserratLight = 'assets/fonts/montserrat/Montserrat-Light.ttf';
   static const String montserratMontserratMedium = 'assets/fonts/montserrat/Montserrat-Medium.ttf';
   static const String montserratMontserratRegular = 'assets/fonts/montserrat/Montserrat-Regular.ttf';
+  static const String notificationsHomeNotificationImage = 'assets/images/notifications/home_notification_image.svg';
   static const String notificationsNoNotificationsYetImage = 'assets/images/notifications/no_notifications_yet_image.svg';
   static const String robotoRobotoBold = 'assets/fonts/roboto/Roboto-Bold.ttf';
   static const String robotoRobotoLight = 'assets/fonts/roboto/Roboto-Light.ttf';
   static const String robotoRobotoMedium = 'assets/fonts/roboto/Roboto-Medium.ttf';
   static const String robotoRobotoRegular = 'assets/fonts/roboto/Roboto-Regular.ttf';
+  static const String welcomeScreenImageWelcomeScreenImages = 'assets/images/welcome_screen_image/welcome_screen_images.svg';
 
 }
