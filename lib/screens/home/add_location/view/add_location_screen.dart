@@ -31,11 +31,16 @@ class AddLocationScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               AddNewLocationsTileWidget(
-                shopName: addLocationController.nameController.text,
-                shopTitle: addLocationController.titleController.text,
-                shopLocation: addLocationController.addressController.text,
-                contactNumber: addLocationController.phoneController.text,
-              ),
+                  shopName: addLocationController.nameController.text,
+                  shopTitle: addLocationController.titleController.text,
+                  shopLocation: addLocationController.addressController.text,
+                  contactNumber: addLocationController.phoneController.text,
+                  state: addLocationController.stateController.text,
+                  zipCode: addLocationController.zipCodeController.text == ""
+                      ? ""
+                      : addLocationController.stateController.text == ""
+                          ? addLocationController.zipCodeController.text
+                          : " , ${addLocationController.zipCodeController.text}"),
               30.ph,
               const Text(
                 "Location Name",
@@ -104,8 +109,6 @@ class AddLocationScreen extends StatelessWidget {
                         return null;
                       },
                       hintText: "State",
-                      isPhone: true,
-                      isEmail: false,
                     ),
                   ),
                   20.pw,

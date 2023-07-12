@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:meta_booking/generated/assets.dart';
 import 'package:meta_booking/utils/gaps/gaps.dart';
 
 import '../../../../utils/colors/app_colors.dart';
@@ -31,24 +32,27 @@ class AddServicesImageTitleDescriptionWidget extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(
-                    20,
-                  ),
-                  topRight: Radius.circular(
-                    20,
-                  ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(
+                  6,
                 ),
                 color: CColors.greyColor,
+                image: const DecorationImage(
+                  image: AssetImage(
+                    Assets.serviceImageAddServiceImage,
+                  ),
+                  fit: BoxFit.fill,
+                ),
               ),
             ),
           ),
           Expanded(
             child: Container(
-              padding: const EdgeInsets.symmetric(
-                vertical: 5,
-                horizontal: 5,
+              padding: const EdgeInsets.only(
+                top: 15,
+                left: 5,
+                right: 5,
+                bottom: 5,
               ),
               decoration: const BoxDecoration(
                 color: CColors.whiteColor,
@@ -65,9 +69,15 @@ class AddServicesImageTitleDescriptionWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
-                    child: Text(
-                      serviceCategory,
-                      style: CustomTextStyles.mBlack510,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        10.pw,
+                        Text(
+                          serviceCategory,
+                          style: CustomTextStyles.mBlack510,
+                        ),
+                      ],
                     ),
                   ),
                   Expanded(

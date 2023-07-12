@@ -5,6 +5,6 @@ class ServicesModel {
     required this.assetImageString,
     required this.briefDescription,
     required this.time,
-    required  this.cost,
+    required this.cost,
   });
 }

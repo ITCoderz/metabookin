@@ -10,10 +10,10 @@ class TodayModel {
 }
 
 class TodayDetailModel {
-  String assetImageString, shopName, typeOfCutting, time, price;
+  String image, shopName, typeOfCutting, time, price;
 
   TodayDetailModel({
-    required this.assetImageString,
+    required this.image,
     required this.shopName,
     required this.typeOfCutting,
     required this.time,

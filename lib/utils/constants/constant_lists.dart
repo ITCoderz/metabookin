@@ -101,14 +101,14 @@ class ConstantLists {
       dateDay: "Today",
       detailModelList: [
         TodayDetailModel(
-          assetImageString: "",
+          image: Assets.mainScreenImagesMainScreenImageOne,
           shopName: "DOMINICAN SPORTS BARBERSHOP #2",
           typeOfCutting: "XTRAS - EXTRAS",
           time: "30 min",
           price: "25.00",
         ),
         TodayDetailModel(
-          assetImageString: "",
+          image: Assets.mainScreenImagesMainScreenImageTwo,
           shopName: "DOMINICAN SPORTS BARBERSHOP #2",
           typeOfCutting: "BREAD",
           time: "30 min",
@@ -120,13 +120,17 @@ class ConstantLists {
       dateDay: "Tue, 11 Apr",
       detailModelList: [
         TodayDetailModel(
-          assetImageString: "",
+          image: Assets.mainScreenImagesMainScreenImageThree,
           shopName: "DOMINICAN SPORTS BARBERSHOP #2",
           typeOfCutting: "SKIN HIGH FADE",
           time: "30 min",
           price: "25.00",
         ),
       ],
+    ),
+    TodayModel(
+      dateDay: "Wed, 12 Apr",
+      detailModelList: [],
     ),
   ];
 
@@ -158,12 +162,14 @@ class ConstantLists {
   ];
   static List<LocationsModel> locationsModelList = [
     LocationsModel(
+      image: Assets.locationImageLocationImage,
       shopNo: "1",
       shopName: "PLEASANT HILL / LILBURN",
       shopLocation: "510 Pleasant Hill Rd, Lilburn, GA 30047",
       contactNumber: "0123456",
     ),
     LocationsModel(
+      image: Assets.locationImageLocationImage,
       shopNo: "1",
       shopName: "PLEASANT HILL / LILBURN",
       shopLocation: "510 Pleasant Hill Rd, Lilburn, GA 30047",

@@ -16,16 +16,22 @@ class Assets {
   static const String iconsNotificationBell = 'assets/images/icons/notification_bell.svg';
   static const String iconsPhone = 'assets/images/icons/phone.svg';
   static const String iconsServiceFilter = 'assets/images/icons/service_filter.svg';
+  static const String locationImageLocationImage = 'assets/images/location_image/location_image.png';
+  static const String mainScreenImagesMainScreenImageOne = 'assets/images/main_screen_images/main_screen_image_one.png';
+  static const String mainScreenImagesMainScreenImageThree = 'assets/images/main_screen_images/main_screen_image_three.png';
+  static const String mainScreenImagesMainScreenImageTwo = 'assets/images/main_screen_images/main_screen_image_two.png';
   static const String montserratMontserratBold = 'assets/fonts/montserrat/Montserrat-Bold.ttf';
   static const String montserratMontserratLight = 'assets/fonts/montserrat/Montserrat-Light.ttf';
   static const String montserratMontserratMedium = 'assets/fonts/montserrat/Montserrat-Medium.ttf';
   static const String montserratMontserratRegular = 'assets/fonts/montserrat/Montserrat-Regular.ttf';
   static const String notificationsHomeNotificationImage = 'assets/images/notifications/home_notification_image.svg';
   static const String notificationsNoNotificationsYetImage = 'assets/images/notifications/no_notifications_yet_image.svg';
+  static const String profileImageProfileImage = 'assets/images/profile_image/profile_image.png';
   static const String robotoRobotoBold = 'assets/fonts/roboto/Roboto-Bold.ttf';
   static const String robotoRobotoLight = 'assets/fonts/roboto/Roboto-Light.ttf';
   static const String robotoRobotoMedium = 'assets/fonts/roboto/Roboto-Medium.ttf';
   static const String robotoRobotoRegular = 'assets/fonts/roboto/Roboto-Regular.ttf';
+  static const String serviceImageAddServiceImage = 'assets/images/service_image/add_service_image.png';
   static const String welcomeScreenImageWelcomeScreenImages = 'assets/images/welcome_screen_image/welcome_screen_images.svg';
 
 }

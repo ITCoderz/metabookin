@@ -45,6 +45,10 @@ flutter:
     - assets/images/app/
     - assets/images/bottom_nav_bar/
     - assets/images/welcome_screen_image/
+    - assets/images/profile_image/
+    - assets/images/service_image/
+    - assets/images/location_image/
+    - assets/images/main_screen_images/
 
 
   fonts:

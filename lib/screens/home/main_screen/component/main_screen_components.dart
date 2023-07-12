@@ -37,112 +37,126 @@ class MainScreenWidgetTile extends StatelessWidget {
             style: CustomTextStyles.mBlack514,
           ),
           20.ph,
-          ListView.separated(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: todayModel.detailModelList.length,
-            separatorBuilder: (BuildContext context, int index) => 15.ph,
-            itemBuilder: (BuildContext context, int index) {
-              return SizedBox(
-                height: 120,
-                child: Card(
-                  color: CColors.whiteColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(
-                      7,
-                    ),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(
-                      15,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: 82,
-                          height: 82,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(
-                                6,
-                              ),
-                              color: CColors.greyColor),
+          todayModel.detailModelList.isNotEmpty
+              ? ListView.separated(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: todayModel.detailModelList.length,
+                  separatorBuilder: (BuildContext context, int index) => 15.ph,
+                  itemBuilder: (BuildContext context, int index) {
+                    return SizedBox(
+                      height: 120,
+                      child: Card(
+                        color: CColors.whiteColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                            7,
+                          ),
                         ),
-                        10.pw,
-                        Expanded(
-                          child: Column(
+                        child: Padding(
+                          padding: const EdgeInsets.all(
+                            15,
+                          ),
+                          child: Row(
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Expanded(
-                                child: Text(
-                                  todayModel.detailModelList[index].shopName,
-                                  style: CustomTextStyles.mDescription408,
-                                  textAlign: TextAlign.center,
+                              Container(
+                                width: 82,
+                                height: 82,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(
+                                    6,
+                                  ),
+                                  image: DecorationImage(
+                                    image: AssetImage(
+                                      todayModel.detailModelList[index].image,
+                                    ),
+                                    fit: BoxFit.fill,
+                                  ),
+                                  color: CColors.greyColor,
                                 ),
                               ),
+                              10.pw,
                               Expanded(
-                                flex: 2,
-                                child: Text(
-                                  todayModel
-                                      .detailModelList[index].typeOfCutting,
-                                  style: CustomTextStyles.mDescription716,
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                              Flexible(
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        const Icon(
-                                          Icons.circle_outlined,
-                                          color: CColors.descriptionColor,
-                                          size: 12,
-                                        ),
-                                        5.pw,
-                                        Text(
-                                          todayModel
-                                              .detailModelList[index].time,
-                                          style:
-                                              CustomTextStyles.mDescription410,
-                                        ),
-                                      ],
-                                    ),
-                                    Text(
-                                      todayModel.detailModelList[index].price,
-                                      style: CustomTextStyles.mDescription410,
-                                    ),
-                                    // context.isPortrait ? 20.pw : 250.pw,
-                                    Flexible(
-                                      child: CustomElevatedButton(
-                                        onPressedFunction: () {},
-                                        buttonText: "View Details",
-                                        width: 110,
-                                        isBlue: true,
-                                        isBorderStadium: true,
+                                    Expanded(
+                                      child: Text(
+                                        todayModel
+                                            .detailModelList[index].shopName,
+                                        style: CustomTextStyles.mDescription408,
+                                        textAlign: TextAlign.center,
                                       ),
                                     ),
+                                    Expanded(
+                                      flex: 2,
+                                      child: Text(
+                                        todayModel.detailModelList[index]
+                                            .typeOfCutting,
+                                        style: CustomTextStyles.mDescription716,
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    ),
+                                    Flexible(
+                                      child: Row(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.center,
+                                            children: [
+                                              const Icon(
+                                                Icons.circle_outlined,
+                                                color: CColors.descriptionColor,
+                                                size: 12,
+                                              ),
+                                              5.pw,
+                                              Text(
+                                                todayModel
+                                                    .detailModelList[index]
+                                                    .time,
+                                                style: CustomTextStyles
+                                                    .mDescription410,
+                                              ),
+                                            ],
+                                          ),
+                                          Text(
+                                            todayModel
+                                                .detailModelList[index].price,
+                                            style: CustomTextStyles
+                                                .mDescription410,
+                                          ),
+                                          // context.isPortrait ? 20.pw : 250.pw,
+                                          Flexible(
+                                            child: CustomElevatedButton(
+                                              onPressedFunction: () {},
+                                              buttonText: "View Details",
+                                              width: 110,
+                                              isBlue: true,
+                                              isBorderStadium: true,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    )
                                   ],
                                 ),
                               )
                             ],
                           ),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              );
-            },
-          ),
+                        ),
+                      ),
+                    );
+                  },
+                )
+              : 70.ph,
         ],
       ),
     );

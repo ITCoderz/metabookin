@@ -3,17 +3,20 @@ import 'package:get/get.dart';
 import 'package:meta_booking/utils/alignment/widget_alignment.dart';
 import 'package:meta_booking/utils/gaps/gaps.dart';
 
+import '../../../../generated/assets.dart';
 import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/text_styles/text_styles.dart';
 
 class AddNewLocationsTileWidget extends StatelessWidget {
-  final String shopName, shopTitle, shopLocation, contactNumber;
+  final String shopName, shopTitle, shopLocation, state, zipCode, contactNumber;
 
   const AddNewLocationsTileWidget({
     super.key,
     required this.shopName,
     required this.shopTitle,
     required this.shopLocation,
+    required this.state,
+    required this.zipCode,
     required this.contactNumber,
   });
 
@@ -33,6 +36,12 @@ class AddNewLocationsTileWidget extends StatelessWidget {
                 10,
               ),
               color: CColors.greyColor,
+              image: const DecorationImage(
+                image: AssetImage(
+                  Assets.locationImageLocationImage,
+                ),
+                fit: BoxFit.fill,
+              ),
             ),
           ).alignWidget(
             alignment: Alignment.centerLeft,
@@ -79,10 +88,21 @@ class AddNewLocationsTileWidget extends StatelessWidget {
                 ),
                 Expanded(
                   flex: 2,
-                  child: Text(
-                    shopLocation,
-                    style: CustomTextStyles.rBlack410,
-                    textAlign: TextAlign.left,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        shopLocation,
+                        style: CustomTextStyles.rBlack410,
+                        textAlign: TextAlign.left,
+                      ),
+                      Text(
+                        "$state$zipCode",
+                        style: CustomTextStyles.rBlack410,
+                        textAlign: TextAlign.left,
+                      ),
+                    ],
                   ),
                 ),
                 Row(

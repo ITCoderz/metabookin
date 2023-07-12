@@ -47,111 +47,118 @@ class FormComponent extends StatelessWidget {
     return Expanded(
       child: Form(
         key: signInKey,
-        child: SingleChildScrollView(
-          child: Container(
-            color: CColors.whiteColor,
-            padding: const EdgeInsets.symmetric(
-              horizontal: 15,
-              vertical: 15,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                const Text(
-                  "Sign in",
-                  textAlign: TextAlign.center,
-                  style: CustomTextStyles.mBlack716,
+        child: CustomScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Container(
+                color: CColors.whiteColor,
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 15,
                 ),
-                20.ph,
-                CustomTextField(
-                  height: 50,
-                  width: context.width * 1,
-                  textEditingController: emailController,
-                  validatorFunction: (val) {
-                    return null;
-                  },
-                  hintText: "Email",
-                ),
-                20.ph,
-                CustomTextField(
-                  height: 50,
-                  width: context.width * 1,
-                  textEditingController: passwordController,
-                  validatorFunction: (val) {
-                    return "";
-                  },
-                  hintText: "Password",
-                ),
-                20.ph,
-                InkWell(
-                  onTap: () {},
-                  child: const Text(
-                    "Forgot Password?",
-                    textAlign: TextAlign.center,
-                    style: CustomTextStyles.mBlackUnderlined412,
-                  ),
-                ).alignWidget(
-                  alignment: Alignment.centerRight,
-                ),
-                20.ph,
-                CustomElevatedButton(
-                  onPressedFunction: loginFunction,
-                  buttonText: "LOGIN",
-                  width: context.width * 1,
-                  isDark: true,
-                ),
-                Row(
-                  mainAxisSize: MainAxisSize.min,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     const Text(
-                      "Don’t have an account?",
+                      "Sign in",
                       textAlign: TextAlign.center,
-                      style: CustomTextStyles.mBlack514,
+                      style: CustomTextStyles.mBlack716,
                     ),
-                    5.pw,
-                    InkWell(
-                      onTap: () {
-                        Get.to(
-                          () => const SignUpScreen(),
-                          transition: Transition.fadeIn,
-                        );
+                    20.ph,
+                    CustomTextField(
+                      height: 50,
+                      width: context.width * 1,
+                      textEditingController: emailController,
+                      validatorFunction: (val) {
+                        return null;
                       },
+                      hintText: "Email",
+                    ),
+                    20.ph,
+                    CustomTextField(
+                      height: 50,
+                      width: context.width * 1,
+                      textEditingController: passwordController,
+                      validatorFunction: (val) {
+                        return "";
+                      },
+                      hintText: "Password",
+                    ),
+                    20.ph,
+                    InkWell(
+                      onTap: () {},
                       child: const Text(
-                        "Sign Up",
-                        style: CustomTextStyles.mDarkBackground714,
+                        "Forgot Password?",
+                        textAlign: TextAlign.center,
+                        style: CustomTextStyles.mBlackUnderlined412,
                       ),
-                    )
+                    ).alignWidget(
+                      alignment: Alignment.centerRight,
+                    ),
+                    20.ph,
+                    CustomElevatedButton(
+                      onPressedFunction: loginFunction,
+                      buttonText: "LOGIN",
+                      width: context.width * 1,
+                      isDark: true,
+                    ),
+                    const Spacer(),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text(
+                          "Don’t have an account?",
+                          textAlign: TextAlign.center,
+                          style: CustomTextStyles.mBlack514,
+                        ),
+                        5.pw,
+                        InkWell(
+                          onTap: () {
+                            Get.to(
+                              () => const SignUpScreen(),
+                              transition: Transition.fadeIn,
+                            );
+                          },
+                          child: const Text(
+                            "Sign Up",
+                            style: CustomTextStyles.mDarkBackground714,
+                          ),
+                        )
+                      ],
+                    ),
+                    20.ph,
+                    InkWell(
+                      borderRadius: BorderRadius.circular(
+                        10,
+                      ),
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Container(
+                        height: 28,
+                        width: 60,
+                        alignment: Alignment.center,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            22,
+                          ),
+                          color: CColors.greyAccentColor,
+                        ),
+                        child: const Icon(
+                          Icons.arrow_back_rounded,
+                          color: CColors.blackColor,
+                        ),
+                      ),
+                    ).alignWidget(
+                      alignment: Alignment.centerLeft,
+                    ),
                   ],
                 ),
-                20.ph,
-                InkWell(
-                  borderRadius: BorderRadius.circular(
-                    10,
-                  ),
-                  onTap: () {
-                    Get.back();
-                  },
-                  child: Container(
-                    height: 28,
-                    width: 60,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(
-                        22,
-                      ),
-                      color: CColors.greyAccentColor,
-                    ),
-                    child: const Icon(
-                      Icons.arrow_back_rounded,
-                      color: CColors.blackColor,
-                    ),
-                  ),
-                ).alignWidget(
-                  alignment: Alignment.centerLeft,
-                ),
-              ],
-            ),
-          ),
+              ),
+            )
+          ],
         ),
       ),
     );

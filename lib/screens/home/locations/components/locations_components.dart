@@ -31,6 +31,12 @@ class LocationsTileWidget extends StatelessWidget {
                 10,
               ),
               color: CColors.greyColor,
+              image: DecorationImage(
+                image: AssetImage(
+                  locationModel.image,
+                ),
+                fit: BoxFit.fill,
+              ),
             ),
           ).alignWidget(
             alignment: Alignment.centerLeft,
@@ -83,6 +89,7 @@ class LocationsTileWidget extends StatelessWidget {
                     textAlign: TextAlign.left,
                   ),
                 ),
+                10.ph,
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -98,7 +105,7 @@ class LocationsTileWidget extends StatelessWidget {
                       child: const Icon(
                         Icons.phone,
                         color: CColors.whiteColor,
-                        size: 20,
+                        size: 15,
                       ),
                     ),
                     5.pw,
@@ -108,7 +115,34 @@ class LocationsTileWidget extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                   ],
-                )
+                ),
+                10.ph,
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(
+                        5,
+                      ),
+                      decoration: const BoxDecoration(
+                        color: CColors.blueAccent,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.phone,
+                        color: CColors.whiteColor,
+                        size: 15,
+                      ),
+                    ),
+                    5.pw,
+                    Text(
+                      locationModel.contactNumber,
+                      style: CustomTextStyles.rBlack410,
+                      textAlign: TextAlign.left,
+                    ),
+                  ],
+                ),
               ],
             ),
           ).alignWidget(

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:meta_booking/reusable_widgets/app_bar/custom_appbar.dart';
 import 'package:meta_booking/reusable_widgets/bottom_nav_bar/reusable_botton_navbar.dart';
 import 'package:meta_booking/reusable_widgets/buttons/custom_elevated_button.dart';
+import 'package:meta_booking/screens/home/services/view/services_screen.dart';
 import 'package:meta_booking/utils/alignment/widget_alignment.dart';
 import 'package:meta_booking/utils/gaps/gaps.dart';
 import 'package:get/get.dart';
 import 'package:meta_booking/utils/text_styles/text_styles.dart';
+import '../../../../generated/assets.dart';
 import '../../../../reusable_widgets/option_container.dart';
 import '../../../../reusable_widgets/text_field/custom_text_field.dart';
 import '../../../../utils/colors/app_colors.dart';
@@ -36,6 +38,12 @@ class ProfileScreen extends StatelessWidget {
                 height: 280,
                 decoration: const BoxDecoration(
                   color: CColors.greyColor,
+                  image: DecorationImage(
+                    image: AssetImage(
+                      Assets.profileImageProfileImage,
+                    ),
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
               20.ph,
@@ -55,7 +63,12 @@ class ProfileScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: CustomElevatedButton(
-                      onPressedFunction: () {},
+                      onPressedFunction: () {
+                        Get.offAll(
+                              () => const ServicesScreen(),
+                          transition: Transition.fadeIn,
+                        );
+                      },
                       buttonText: "SERVICES",
                       width: 100,
                       isBlue: true,
