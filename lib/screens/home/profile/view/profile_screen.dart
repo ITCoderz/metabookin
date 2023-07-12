@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:meta_booking/reusable_widgets/app_bar/custom_appbar.dart';
+import 'package:meta_booking/reusable_widgets/bottom_nav_bar/reusable_botton_navbar.dart';
 import 'package:meta_booking/reusable_widgets/buttons/custom_elevated_button.dart';
 import 'package:meta_booking/utils/alignment/widget_alignment.dart';
 import 'package:meta_booking/utils/gaps/gaps.dart';
 import 'package:get/get.dart';
 import 'package:meta_booking/utils/text_styles/text_styles.dart';
+import '../../../../reusable_widgets/option_container.dart';
 import '../../../../reusable_widgets/text_field/custom_text_field.dart';
 import '../../../../utils/colors/app_colors.dart';
+import '../../locations/view/locations_screen.dart';
 import '../controller/profile_controller.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -36,6 +39,17 @@ class ProfileScreen extends StatelessWidget {
                 ),
               ),
               20.ph,
+              CustomTextField(
+                height: 80,
+                width: context.width * 1,
+                maxLines: 5,
+                textEditingController: profileController.aboutMyselfController,
+                validatorFunction: (val) {
+                  return null;
+                },
+                hintText: "About Myself",
+              ),
+              20.ph,
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -50,7 +64,12 @@ class ProfileScreen extends StatelessWidget {
                   20.pw,
                   Expanded(
                     child: CustomElevatedButton(
-                      onPressedFunction: () {},
+                      onPressedFunction: () {
+                        Get.to(
+                          () => const LocationsScreen(),
+                          transition: Transition.fadeIn,
+                        );
+                      },
                       buttonText: "LOCATIONS",
                       width: 100,
                       isBlue: true,
@@ -144,28 +163,27 @@ class ProfileScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Expanded(
-                    child: CustomTextField(
-                      height: 50,
-                      width: context.width * 1,
-                      textEditingController: TextEditingController(),
-                      validatorFunction: (val) {
-                        return null;
-                      },
-                      hintText: "Barbershop",
-                    ),
+                    child: Obx(() {
+                      return OptionContainer(
+                        onTapFunction: () {
+                          profileController.toggleBarberShop(optionValue: true);
+                        },
+                        isSelected: profileController.isBarberShop.value,
+                        optionTitle: "Barbershop",
+                      );
+                    }),
                   ),
                   20.pw,
                   Expanded(
-                    child: CustomTextField(
-                      height: 50,
-                      width: context.width * 1,
-                      textEditingController: TextEditingController(),
-                      validatorFunction: (val) {
-                        return null;
-                      },
-                      hintText: "Hair Saloon",
-                      isPassword: true,
-                    ),
+                    child: Obx(() {
+                      return OptionContainer(
+                        onTapFunction: () {
+                          profileController.toggleHairSalon(optionValue: true);
+                        },
+                        isSelected: profileController.isHairSalon.value,
+                        optionTitle: "Hair Salon",
+                      );
+                    }),
                   ),
                 ],
               ),
@@ -269,6 +287,9 @@ class ProfileScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+      bottomNavigationBar: const CustomBottomAppBar(
+        selectedIndex: 3,
       ),
     );
   }

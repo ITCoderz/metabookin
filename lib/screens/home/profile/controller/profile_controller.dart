@@ -12,4 +12,20 @@ class ProfileController extends GetxController {
   TextEditingController cityController = TextEditingController();
   TextEditingController stateController = TextEditingController();
   TextEditingController zipCodeController = TextEditingController();
+  final isBarberShop = false.obs;
+  final isHairSalon = false.obs;
+
+  toggleBarberShop({required bool optionValue}) {
+    if (!isBarberShop.value) {
+      isBarberShop.value = optionValue;
+      isHairSalon.value = !optionValue;
+    }
+  }
+
+  toggleHairSalon({required bool optionValue}) {
+    if (!isHairSalon.value) {
+      isHairSalon.value = optionValue;
+      isBarberShop.value = !optionValue;
+    }
+  }
 }

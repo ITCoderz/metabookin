@@ -5,14 +5,13 @@ import '../utils/text_styles/text_styles.dart';
 
 class ChipWidget extends StatelessWidget {
   final bool isSelected;
-  final String interestName, avatarString;
+  final String filterHeaderName;
   final Function()? onPressFunction;
 
   const ChipWidget({
     super.key,
     required this.isSelected,
-    required this.interestName,
-    required this.avatarString,
+    required this.filterHeaderName,
     this.onPressFunction,
   });
 
@@ -21,14 +20,14 @@ class ChipWidget extends StatelessWidget {
     return ActionChip(
       onPressed: onPressFunction,
       label: Text(
-        interestName,
+        filterHeaderName,
         style: isSelected
             ? CustomTextStyles.mWhite412
             : CustomTextStyles.mDarkBackgroundTwo412,
       ),
-      avatar: Text(avatarString),
-      shape: const RoundedRectangleBorder(
-        side: BorderSide(
+      shape:  RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(6),
+        side: const BorderSide(
           color: CColors.chipBorderColor,
         ),
       ),

@@ -8,7 +8,9 @@ import 'package:meta_booking/utils/text_styles/text_styles.dart';
 import '../../../../generated/assets.dart';
 import '../../../../reusable_widgets/app_bar/custom_appbar.dart';
 import '../../../../reusable_widgets/custom_bottom_sheet.dart';
+import '../../../../reusable_widgets/text_field/search_field.dart';
 import '../../../../utils/constants/constant_lists.dart';
+import '../../add_service/view/add_service_screen.dart';
 import '../component/services_component.dart';
 
 class ServicesScreen extends StatelessWidget {
@@ -22,75 +24,90 @@ class ServicesScreen extends StatelessWidget {
         centerTitle: false,
       ),
       body: SingleChildScrollView(
-          child: Padding(
-        padding: const EdgeInsets.all(15),
-        child: Column(
-          children: [
-            10.ph,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+        children: [
+          SearchTextField(
+            textEditingController: TextEditingController(),
+          ),
+          10.ph,
+          Padding(
+            padding: const EdgeInsets.all(
+              15,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  "Services",
-                  style: CustomTextStyles.mDarkBackgroundTwo722,
-                ),
                 Row(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    InkWell(
-                      borderRadius: BorderRadius.circular(
-                        20,
-                      ),
-                      onTap: () {},
-                      child: SvgPicture.asset(
-                        Assets.iconsAdd,
-                      ),
+                    const Text(
+                      "Services",
+                      style: CustomTextStyles.mDarkBackgroundTwo722,
                     ),
-                    InkWell(
-                      borderRadius: BorderRadius.circular(
-                        20,
-                      ),
-                      onTap: () {
-                        showModalBottomSheet(
-                          elevation: 0.0,
-                          backgroundColor: Colors.transparent,
-                          enableDrag: true,
-                          showDragHandle: true,
-                          isScrollControlled: true,
-                          constraints:
-                              BoxConstraints(maxHeight: context.height * 0.8),
-                          context: context,
-                          builder: (BuildContext context) {
-                            return const BottomDetailSheet();
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        InkWell(
+                          borderRadius: BorderRadius.circular(
+                            20,
+                          ),
+                          onTap: () {
+                            Get.to(
+                              () => const AddServiceScreen(),
+                              transition: Transition.fadeIn,
+                            );
                           },
-                        );
-                      },
-                      child: SvgPicture.asset(
-                        Assets.iconsServiceFilter,
-                      ),
-                    ),
+                          child: SvgPicture.asset(
+                            Assets.iconsAdd,
+                          ),
+                        ),
+                        InkWell(
+                          borderRadius: BorderRadius.circular(
+                            20,
+                          ),
+                          onTap: () {
+                            showModalBottomSheet(
+                              elevation: 0.0,
+                              backgroundColor: Colors.transparent,
+                              enableDrag: true,
+                              showDragHandle: true,
+                              isScrollControlled: true,
+                              constraints: BoxConstraints(
+                                  maxHeight: context.height * 0.8),
+                              context: context,
+                              builder: (BuildContext context) {
+                                return const BottomDetailSheet();
+                              },
+                            );
+                          },
+                          child: SvgPicture.asset(
+                            Assets.iconsServiceFilter,
+                          ),
+                        ),
+                      ],
+                    )
                   ],
-                )
+                ),
+                50.ph,
+                GridView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: ConstantLists.serviceModelList.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      mainAxisExtent: 240,
+                      crossAxisCount: context.isPortrait ? 2 : 3,
+                      crossAxisSpacing: 10.0,
+                      mainAxisSpacing: 10.0),
+                  itemBuilder: (BuildContext context, int index) {
+                    return ServicesGridTile(
+                      servicesModel: ConstantLists.serviceModelList[index],
+                    );
+                  },
+                ),
               ],
             ),
-            50.ph,
-            GridView.builder(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              itemCount: ConstantLists.serviceModelList.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisExtent: 240,
-                  crossAxisCount: context.isPortrait ? 2 : 3,
-                  crossAxisSpacing: 10.0,
-                  mainAxisSpacing: 10.0),
-              itemBuilder: (BuildContext context, int index) {
-                return ServicesGridTile(
-                  servicesModel: ConstantLists.serviceModelList[index],
-                );
-              },
-            ),
-          ],
-        ),
+          ),
+        ],
       )),
       bottomNavigationBar: const CustomBottomAppBar(
         selectedIndex: 2,

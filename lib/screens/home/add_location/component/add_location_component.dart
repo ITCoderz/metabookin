@@ -3,16 +3,18 @@ import 'package:get/get.dart';
 import 'package:meta_booking/utils/alignment/widget_alignment.dart';
 import 'package:meta_booking/utils/gaps/gaps.dart';
 
-import '../../../../models/locations_model.dart';
 import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/text_styles/text_styles.dart';
 
-class LocationsTileWidget extends StatelessWidget {
-  final LocationsModel locationModel;
+class AddNewLocationsTileWidget extends StatelessWidget {
+  final String shopName, shopTitle, shopLocation, contactNumber;
 
-  const LocationsTileWidget({
+  const AddNewLocationsTileWidget({
     super.key,
-    required this.locationModel,
+    required this.shopName,
+    required this.shopTitle,
+    required this.shopLocation,
+    required this.contactNumber,
   });
 
   @override
@@ -64,21 +66,21 @@ class LocationsTileWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    "BARBERSHOP #${locationModel.shopNo}",
+                    shopName,
                     style: CustomTextStyles.rBlack410,
                   ),
                 ),
                 Expanded(
                   flex: 2,
                   child: Text(
-                    locationModel.shopName,
+                    shopTitle,
                     style: CustomTextStyles.rBlack612,
                   ),
                 ),
                 Expanded(
                   flex: 2,
                   child: Text(
-                    locationModel.shopLocation,
+                    shopLocation,
                     style: CustomTextStyles.rBlack410,
                     textAlign: TextAlign.left,
                   ),
@@ -103,7 +105,7 @@ class LocationsTileWidget extends StatelessWidget {
                     ),
                     5.pw,
                     Text(
-                      locationModel.contactNumber,
+                      contactNumber,
                       style: CustomTextStyles.rBlack410,
                       textAlign: TextAlign.left,
                     ),

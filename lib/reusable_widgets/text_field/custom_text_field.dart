@@ -10,6 +10,7 @@ class CustomTextField extends StatelessWidget {
   final double width, height;
   final Color fillColor;
   final bool isPassword, isPhone, isEmail;
+  final int? maxLines;
 
   const CustomTextField({
     Key? key,
@@ -20,6 +21,7 @@ class CustomTextField extends StatelessWidget {
     this.isPassword = false,
     this.isPhone = false,
     this.fillColor = CColors.scaffoldBackground,
+    this.maxLines = 1,
     required this.validatorFunction,
     required this.textEditingController,
   }) : super(key: key);
@@ -33,6 +35,7 @@ class CustomTextField extends StatelessWidget {
         controller: textEditingController,
         textAlignVertical: TextAlignVertical.center,
         style: CustomTextStyles.mBlack512,
+        maxLines: maxLines,
         keyboardType: isEmail
             ? TextInputType.emailAddress
             : isPhone

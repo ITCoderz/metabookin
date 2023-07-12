@@ -87,6 +87,12 @@ class CustomTextStyles {
     color: CColors.whiteColor,
     fontFamily: 'Montserrat',
   );
+  static const TextStyle mBlack412 = TextStyle(
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+    color: CColors.blackColor,
+    fontFamily: 'Montserrat',
+  );
   static const TextStyle mBlackUnderlined412 = TextStyle(
     fontWeight: FontWeight.w400,
     fontSize: 12,
@@ -116,6 +122,18 @@ class CustomTextStyles {
   static const TextStyle rWhite614 = TextStyle(
     fontWeight: FontWeight.w600,
     fontSize: 14,
+    color: CColors.whiteColor,
+    fontFamily: 'Roboto',
+  );
+  static const TextStyle rDescriptionColor716 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 16,
+    color: CColors.descriptionColor,
+    fontFamily: 'Roboto',
+  );
+  static const TextStyle rWhite716 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 16,
     color: CColors.whiteColor,
     fontFamily: 'Roboto',
   );
@@ -195,5 +213,16 @@ class CustomTextStyles {
     fontSize: 12,
     color: CColors.darkBackgroundTwo,
     fontFamily: 'Montserrat',
+  );
+  static const TextStyle rWhite712 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 12,
+    color: CColors.whiteColor,
+    fontFamily: 'Roboto',
+  );static const TextStyle rDescriptionColor712 = TextStyle(
+    fontWeight: FontWeight.w700,
+    fontSize: 12,
+    color: CColors.descriptionColor,
+    fontFamily: 'Roboto',
   );
 }

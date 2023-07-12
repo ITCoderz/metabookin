@@ -4,8 +4,11 @@ import 'package:meta_booking/reusable_widgets/buttons/custom_elevated_button.dar
 import 'package:meta_booking/utils/alignment/widget_alignment.dart';
 import 'package:meta_booking/utils/gaps/gaps.dart';
 
+import '../screens/home/services/controller/services_controller.dart';
 import '../utils/colors/app_colors.dart';
+import '../utils/constants/constant_lists.dart';
 import '../utils/text_styles/text_styles.dart';
+import 'chip_widget.dart';
 
 class BottomDetailSheet extends StatelessWidget {
   const BottomDetailSheet({
@@ -46,45 +49,57 @@ class BottomDetailSheet extends StatelessWidget {
               style: CustomTextStyles.mBlackUnderlined612,
             ),
             20.ph,
-            // Wrap(
-            //   spacing: 10,
-            //   runSpacing: 10,
-            //   children: [
-            //     for (int i = 0;
-            //         i < ConstantLists.interestsList.length - 11;
-            //         i++) ...[
-            //       ChipWidget(
-            //         isSelected: false,
-            //         interestName:
-            //             ConstantLists.interestsList[i].interestName,
-            //         avatarString:
-            //             ConstantLists.interestsList[i].avatarString,
-            //       )
-            //     ]
-            //   ],
-            // ),
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: [
+                for (int i = 0;
+                    i < ConstantLists.filterHairSalonList.length;
+                    i++) ...[
+                  GetBuilder(
+                    init: ServicesController(),
+                    builder: (controller) {
+                      return ChipWidget(
+                        isSelected: controller.filterBarber[i].isSelected,
+                        filterHeaderName:
+                            controller.filterBarber[i].filterHeaderName,
+                        onPressFunction: () {
+                          controller.selectInterestBarber(index: i);
+                        },
+                      );
+                    },
+                  )
+                ]
+              ],
+            ),
             const Text(
               "Hair Salon",
               style: CustomTextStyles.mBlackUnderlined612,
             ),
             20.ph,
-            // Wrap(
-            //   spacing: 10,
-            //   runSpacing: 10,
-            //   children: [
-            //     for (int i = 0;
-            //         i < ConstantLists.interestsList.length - 11;
-            //         i++) ...[
-            //       ChipWidget(
-            //         isSelected: false,
-            //         interestName:
-            //             ConstantLists.interestsList[i].interestName,
-            //         avatarString:
-            //             ConstantLists.interestsList[i].avatarString,
-            //       )
-            //     ]
-            //   ],
-            // ),
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: [
+                for (int i = 0;
+                    i < ConstantLists.filterBarberShopList.length;
+                    i++) ...[
+                  GetBuilder(
+                    init: ServicesController(),
+                    builder: (controller) {
+                      return ChipWidget(
+                        isSelected: controller.filterSalon[i].isSelected,
+                        filterHeaderName:
+                            controller.filterSalon[i].filterHeaderName,
+                        onPressFunction: () {
+                          controller.selectInterestSalon(index: i);
+                        },
+                      );
+                    },
+                  )
+                ]
+              ],
+            ),
             100.ph,
             Row(
               mainAxisSize: MainAxisSize.min,

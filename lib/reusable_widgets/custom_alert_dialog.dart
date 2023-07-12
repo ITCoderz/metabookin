@@ -74,7 +74,7 @@ class CustomAlertDialog extends StatelessWidget {
             ),
             10.ph,
             CustomElevatedButton(
-              onPressedFunction: () {},
+              onPressedFunction: onPressFunction,
               buttonText: "SUBMIT",
               width: context.width * 1,
               isDark: true,

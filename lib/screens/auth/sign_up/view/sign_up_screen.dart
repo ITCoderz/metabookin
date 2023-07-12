@@ -9,6 +9,7 @@ import '../../../../generated/assets.dart';
 import '../../../../reusable_widgets/app_bar/custom_appbar.dart';
 import '../../../../reusable_widgets/buttons/custom_elevated_button.dart';
 import '../../../../reusable_widgets/custom_alert_dialog.dart';
+import '../../../../reusable_widgets/option_container.dart';
 import '../../../../reusable_widgets/text_field/custom_text_field.dart';
 import '../../../../utils/colors/app_colors.dart';
 import '../../../../utils/text_styles/text_styles.dart';
@@ -123,44 +124,44 @@ class SignUpScreen extends StatelessWidget {
                     isPassword: true,
                   ),
                   20.ph,
-                  /*Change Afterwards*/
+
+                  const Text(
+                    "What’s your primary business category?",
+                    textAlign: TextAlign.center,
+                    style: CustomTextStyles.mBlack510,
+                  ).alignWidget(
+                    alignment: Alignment.centerLeft,
+                  ),
+                  10.ph,
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Expanded(
-                        child: CustomTextField(
-                          height: 50,
-                          width: context.width * 1,
-                          textEditingController: TextEditingController(),
-                          validatorFunction: (val) {
-                            return null;
-                          },
-                          hintText: "Barbershop",
-                        ),
+                        child: Obx(() {
+                          return OptionContainer(
+                            onTapFunction: () {
+                              signUpScreen.toggleBarberShop(optionValue: true);
+                            },
+                            isSelected: signUpScreen.isBarberShop.value,
+                            optionTitle: "Barbershop",
+                          );
+                        }),
                       ),
                       20.pw,
                       Expanded(
-                        child: CustomTextField(
-                          height: 50,
-                          width: context.width * 1,
-                          textEditingController: TextEditingController(),
-                          validatorFunction: (val) {
-                            return null;
-                          },
-                          hintText: "Hair Saloon",
-                          isPassword: true,
-                        ),
+                        child: Obx(() {
+                          return OptionContainer(
+                            onTapFunction: () {
+                              signUpScreen.toggleHairSalon(optionValue: true);
+                            },
+                            isSelected: signUpScreen.isHairSalon.value,
+                            optionTitle: "Hair Salon",
+                          );
+                        }),
                       ),
                     ],
                   ),
-                  20.ph,
-                  const Text(
-                    "What’s your primary business category?",
-                    textAlign: TextAlign.center,
-                    style: CustomTextStyles.mBlackUnderlined412,
-                  ).alignWidget(
-                    alignment: Alignment.centerLeft,
-                  ),
+
                   20.ph,
                   CustomElevatedButton(
                     onPressedFunction: () {

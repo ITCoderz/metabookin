@@ -4,14 +4,60 @@ import 'package:meta_booking/screens/home/profile/view/profile_screen.dart';
 
 import '../../generated/assets.dart';
 import '../../models/bottom_app_bar_model.dart';
+import '../../models/filter_model.dart';
 import '../../models/services_model.dart';
 import '../../models/today_model.dart';
+import '../../screens/home/calendar/view/calendar_screen.dart';
 import '../../screens/home/main_screen/view/main_screen.dart';
 import '../../screens/home/services/view/services_screen.dart';
 
 class ConstantLists {
   ConstantLists._();
 
+  static List<FilterModel> filterBarberShopList = [
+    FilterModel(
+      isSelected: false,
+      filterHeaderName: "All",
+    ),
+    FilterModel(
+      isSelected: false,
+      filterHeaderName: "Seniors - Señores",
+    ),
+    FilterModel(
+      isSelected: false,
+      filterHeaderName: "Barbershop",
+    ),
+    FilterModel(
+      isSelected: false,
+      filterHeaderName: "Curly Haircut",
+    ),
+    FilterModel(
+      isSelected: false,
+      filterHeaderName: "Seniors - Señores",
+    ),
+  ];
+  static List<FilterModel> filterHairSalonList = [
+    FilterModel(
+      isSelected: false,
+      filterHeaderName: "All",
+    ),
+    FilterModel(
+      isSelected: false,
+      filterHeaderName: "Seniors - Señores",
+    ),
+    FilterModel(
+      isSelected: false,
+      filterHeaderName: "Barbershop",
+    ),
+    FilterModel(
+      isSelected: false,
+      filterHeaderName: "Curly Haircut",
+    ),
+    FilterModel(
+      isSelected: false,
+      filterHeaderName: "Seniors - Señores",
+    ),
+  ];
   static List<BottomAppBarModel> bottomAppBarList = [
     BottomAppBarModel(
       assetImageString: Assets.bottomNavBarToday,
@@ -24,7 +70,12 @@ class ConstantLists {
     ),
     BottomAppBarModel(
       assetImageString: Assets.bottomNavBarCalender,
-      onTapFunction: () {},
+      onTapFunction: () {
+        Get.offAll(
+          () => const CalendarScreen(),
+          transition: Transition.fadeIn,
+        );
+      },
     ),
     BottomAppBarModel(
       assetImageString: Assets.bottomNavBarServices,

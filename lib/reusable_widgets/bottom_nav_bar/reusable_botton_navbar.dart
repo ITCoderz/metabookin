@@ -62,7 +62,15 @@ class BottomBarComponent extends StatelessWidget {
             width: 45,
             height: 10,
           ),
-          SvgPicture.asset(assetImage),
+          SvgPicture.asset(
+            assetImage,
+            colorFilter: ColorFilter.mode(
+              selectedIndex == itemIndex
+                  ? CColors.descriptionColor
+                  : CColors.whiteColor,
+              BlendMode.srcIn,
+            ),
+          ),
           const SizedBox(
             width: 45,
             height: 10,
